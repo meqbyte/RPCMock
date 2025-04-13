@@ -39,7 +39,7 @@ public class RPCServer {
 
                 OutputStream out = socket.getOutputStream();
                 ObjectOutputStream oos = new ObjectOutputStream(out);
-                oos.writeObject(RPCResponse.success(request));
+                oos.writeObject(RPCResponse.success(result));
                 oos.flush();
 
 
