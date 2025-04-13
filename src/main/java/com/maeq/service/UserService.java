@@ -4,4 +4,6 @@ import com.maeq.entity.User;
 
 public interface UserService {
     public User getUserByUserId(Integer id);
+
+    public Integer insertUser(User user);
 }
