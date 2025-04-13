@@ -14,27 +14,32 @@ public class RPCServer {
         UserServiceImpl userServiceImpl = new UserServiceImpl();
         try {
             ServerSocket serverSocket = new ServerSocket(8888);
-            Socket socket = serverSocket.accept();
+            while (true) {
+                Socket socket = serverSocket.accept();
 
-            System.out.println("accept.....");
+                System.out.println("accept.....");
 
-            InputStream in = socket.getInputStream();
-            ObjectInputStream ois = new ObjectInputStream(in);
+                InputStream in = socket.getInputStream();
+                ObjectInputStream ois = new ObjectInputStream(in);
 
-            Integer id = ois.readInt();
-            System.out.println("id = " + id);
+                Integer id = ois.readInt();
+                System.out.println("id = " + id);
 
-            User user = userServiceImpl.getUserByUserId(id);
+                User user = userServiceImpl.getUserByUserId(id);
 
-            OutputStream out = socket.getOutputStream();
-            ObjectOutputStream oos = new ObjectOutputStream(out);
-            oos.writeObject(user);
-            oos.flush();
+                OutputStream out = socket.getOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(out);
+                oos.writeObject(user);
+                oos.flush();
 
 
-//            in.close();
-            socket.close();
-            serverSocket.close();
+                ois.close();
+                oos.close();
+                socket.close();
+            }
+
+            // unreachable ,why
+//            serverSocket.close();
 
 
         } catch (IOException e) {
