@@ -1,6 +1,7 @@
 package com.maeq;
 
 import com.maeq.entity.User;
+import com.maeq.rpc.RPCRequest;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -16,7 +17,15 @@ public class RPCClient {
 
             Random random = new Random();
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
-            oos.writeInt(random.nextInt());
+//            oos.writeInt(random.nextInt());
+//            oos.flush();
+
+            RPCRequest request = RPCRequest.builder()
+                    .methodName("getUserByUserId")
+                    .paramsValue(new Object[]{123321})
+                    .paramsType(new Class[]{Integer.class})
+                    .build();
+            oos.writeObject(request);
             oos.flush();
 
             ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
