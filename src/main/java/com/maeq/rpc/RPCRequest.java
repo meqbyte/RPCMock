@@ -13,6 +13,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class RPCRequest implements Serializable {
     private static final long serialVersionUID = 1L;
+    private String interfaceName;
     private String methodName;
     private Object[] paramsValue;
     private Class<?>[] paramsType;

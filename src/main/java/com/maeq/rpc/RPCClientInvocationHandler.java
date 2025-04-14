@@ -12,6 +12,7 @@ public class RPCClientInvocationHandler implements InvocationHandler {
         System.out.println("here is in invocation handler....");
 
         RPCRequest request = RPCRequest.builder()
+                .interfaceName(method.getDeclaringClass().getName())
                 .methodName(method.getName())
                 .paramsType(method.getParameterTypes())
                 .paramsValue(args)

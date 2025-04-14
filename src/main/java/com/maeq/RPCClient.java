@@ -34,8 +34,11 @@ public class RPCClient {
             UserService userService = (UserService) Proxy.newProxyInstance(UserService.class.getClassLoader(),
                     new Class[]{UserService.class},
                     new RPCClientInvocationHandler());
-            userService.getUserByUserId(1);
+            User user = userService.getUserByUserId(1);
+            System.out.println("user = " + user.toString());
 
+            Integer id = userService.insertUser(user);
+            System.out.println("insert id = " + id);
 
 //            ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
 //            User user = (User) ois.readObject();
