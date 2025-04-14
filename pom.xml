@@ -22,6 +22,16 @@
             <scope>provided</scope>
         </dependency>
 
+
+            <!-- Netty核心依赖，包含常用模块 -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>4.1.100.Final</version>
+            </dependency>
+
+
+
     </dependencies>
 
 </project>
