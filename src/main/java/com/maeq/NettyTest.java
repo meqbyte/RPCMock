@@ -12,14 +12,14 @@ public class NettyTest {
         EventLoopGroup boss = new NioEventLoopGroup();
         EventLoopGroup worker = new NioEventLoopGroup();
 
-        try {
-            ServerBootstrap serverBootstrap = new ServerBootstrap();
-            serverBootstrap.group(boss, worker)
-                    .channel(NioServerSocketChannel.class)
-                    .childHandler(new ChannelInitializer<>() {
-
-                    });
-        }
+//        try {
+//            ServerBootstrap serverBootstrap = new ServerBootstrap();
+//            serverBootstrap.group(boss, worker)
+//                    .channel(NioServerSocketChannel.class)
+//                    .childHandler(new ChannelInitializer<>() {
+//
+//                    });
+//        }
 
     }
 
