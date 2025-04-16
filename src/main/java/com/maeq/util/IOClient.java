@@ -14,6 +14,7 @@ public class IOClient {
 
         try {
             Socket socket = new Socket("127.0.0.1", 8888);
+            socket.setSoTimeout(3000);
 
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
             oos.writeObject(rpcRequest);
